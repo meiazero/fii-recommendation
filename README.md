@@ -2,6 +2,8 @@
 
 > This is a personal project to analyze FII's (real estate investment funds).
 
+⚠️ the project is still in development ⚠️
+
 ## What is a FII?
 
 FII is Fundo de Investimento Imobiliário, a real estate investment funds, that invests in
