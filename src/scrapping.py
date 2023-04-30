@@ -29,15 +29,48 @@ Metricas de dividendos pode ser obtida em: https://fiis.com.br/<nome do fundo>
 
 '''
 
+from fncs import FilterCardsInfos, FilterCardName, FilterCardSymbol, FilterCardAdmin
+
+BASE_URL = 'https://www.fundsexplorer.com.br/funds'
+
 
 class FilterMainInfosFII():
-    pass
+    error = []
+
+    def __init__(self) -> None:
+        self.run()
+
+    def run(self, url: str = BASE_URL, get=None) -> list:
+        cards: list = FilterCardsInfos(url, card_class='fund-card')
+
+        names: list = FilterCardName(cards)
+        symbols: list = FilterCardSymbol(cards)
+        admins: list = FilterCardAdmin(cards)
+
+        if get == 'names':
+            print(f'FIIs Names has listed \n {names} \n')
+            return names
+        elif get == 'symbol':
+            print(f'FIIs Symbols has listed \n {symbols} \n')
+            return symbols
+        elif get == 'admins':
+            print(f'FIIs Admins has listed \n {admins} \n')
+            return admins
+        else:
+            return self.error
+
 
 class FilterValueAndTypeFII():
     pass
 
+
 class FilterFIICompanyInfos():
     pass
 
+
 class FilterDividendMetrics():
     pass
+
+
+if __name__ == '__main__':
+    FilterMainInfosFII().run(get='symbol')
