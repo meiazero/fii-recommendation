@@ -32,5 +32,21 @@ def normalizar_p_vp(valor):
         return None
 
 
+def normalizar_dy(valor):
+    # recebe um valor em string que representa uma porcentagem e retorna um float
+    if isinstance(valor, str):
+        try:
+            # Removendo o "%"
+            valor = valor.replace('%', '')
+            # Convertendo para float
+            return locale.atof(valor)
+        except ValueError:
+            return None
+    elif isinstance(valor, (int, float)):
+        return valor
+    else:
+        return None
+
+
 def read_csv_file(file):
     return read_csv(file)
