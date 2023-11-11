@@ -1,10 +1,10 @@
 
-from src.utils import normalizar_preco, normalizar_p_vp
+from src.utils import normalizar_preco, normalizar_p_vp, read_csv_file
 
 
 def main(file):
     # Carregando o CSV
-    df = read_csv(file)
+    df = read_csv_file
     
     # Aplicando a normalização na coluna "preco_atuais"
     df['preco_atual'] = df['preco_atual'].apply(normalizar_preco)
