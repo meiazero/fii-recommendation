@@ -13,7 +13,7 @@ def main(file):
     df = df.dropna(subset=['p_vp', 'dy_12m_media'])
 
     # Creating a new column that represents if each row meets the conditions
-    df['conditions_met'] = ((df['p_vp'] > 0.8) & (df['p_vp'] < 1.2) & (df['dy_12m_media'] > 0.95) & (df['dy_12m_media'] < 1.5 ) & (df['quantidade_ativos'] > 0))
+    df['conditions_met'] = ((df['p_vp'] > 0.7) & (df['p_vp'] < 1.2) & (df['dy_12m_media'] > 0.95) & (df['dy_12m_media'] < 1.5 ) & (df['quantidade_ativos'] > 0))
 
     # Filtering the dataset to include only the rows that meet the conditions
     filtered_df = df[df['conditions_met'] == True]
